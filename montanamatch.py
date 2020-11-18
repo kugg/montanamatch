@@ -21,15 +21,29 @@ def hexstr_to_list(hexstr):
 def nearest_color(subjects, query):
     return min( subjects, key = lambda subject: sum( (s - q) ** 2 for s, q in zip( subject, query ) ) )
 
+def hexstr_list_to_rgblist_list(array):
+    """Convert a list of hex strings to a list of rgb lists."""
+    newlist = []
+    for item in array:
+        try:
+            newitem = hexstr_to_list(item[0])
+        except TypeError as E:
+            continue
+        newitem.append(item[1])
+        newlist.append(newitem)
+    return newlist
+
 def montanablack(target_color):
     with open("blk.json", "r") as blk:
         colors = json.loads(blk.read())
-    return nearest_color(colors, hexstr_to_list(target_color))
+    return nearest_color(hexstr_list_to_rgblist_list(colors), \
+                         hexstr_to_list(target_color))
 
 def mtn94(target_color):
     with open("mtn.json", "r") as mtn:
         colors = json.loads(mtn.read())
-    return nearest_color(colors, hexstr_to_list(target_color))
+    return nearest_color(hexstr_list_to_rgblist_list(colors), \
+                         hexstr_to_list(target_color))
 
 
 if __name__ == "__main__":
