@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<script src="montanamatch.js"></script>
+		<script>
+			function checkInput() {
+				var colorStr = document.getElementById("colors").value
+				var matchesArr = match(colorStr.split("\n"));
+				document.getElementById("results").value = matchesArr;
+			}
+		</script>
+		<form>
+			<p>Enter hex colors in to the box to match the closest montana.</p>
+			<textarea onchange="checkInput()" name="colors" id="colors" class="inputfield" rows="12" cols="6">#FF0000
+#00FF00
+#0000FF</textarea>
+			<textarea name="results" id="results" class="outputfield" rows="12" cols="40"></textarea>
+		</form>
+	</body>
+</html>
