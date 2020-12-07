@@ -17,10 +17,13 @@
 		</script>
 		<form id="colorpicker">
 			<p>Enter hex colors in to the box to match the closest montana.</p>
+			<p>Pick your colors in a picture using this service: <a href="https://www.ginifab.com/feeds/pms/color_picker_from_image.php">Pick color from image</a></p>
+			<p>
 			<textarea onchange="checkInput()" name="colors" id="colors" class="inputfield" rows="12" cols="6">#FF0000
 #00FF00
 #0000FF</textarea>
 			<textarea name="results" id="results" class="outputfield" rows="12" cols="40"></textarea>
+			</p>
 			<script>
 			for (var brand in cans) {
 				colorForm = document.getElementById("colorpicker");
