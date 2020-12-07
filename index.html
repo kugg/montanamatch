@@ -6,18 +6,37 @@
 	<body>
 		<script src="montanamatch.js"></script>
 		<script>
-			function checkInput() {
-				var colorStr = document.getElementById("colors").value
-				var matchesArr = match(colorStr.split("\n"));
-				document.getElementById("results").value = matchesArr;
-			}
+		function checkInput() {
+			var colorStr = document.getElementById("colors").value;
+			var brandStr = document.querySelector('input[name="brand"]:checked').value;
+			
+			console.log(brandStr);
+			var matchesArr = match(colorStr.split("\n"), brandStr);
+			document.getElementById("results").value = matchesArr;
+		}
 		</script>
-		<form>
+		<form id="colorpicker">
 			<p>Enter hex colors in to the box to match the closest montana.</p>
 			<textarea onchange="checkInput()" name="colors" id="colors" class="inputfield" rows="12" cols="6">#FF0000
 #00FF00
 #0000FF</textarea>
 			<textarea name="results" id="results" class="outputfield" rows="12" cols="40"></textarea>
+			<script>
+			for (var brand in cans) {
+				colorForm = document.getElementById("colorpicker");
+				var label = document.createElement("label");
+				var input = document.createElement("input");
+				if (brand == Object.keys(cans)[0]) {
+					input.setAttribute("checked", true);
+				}
+				input.setAttribute("type", "radio");
+				input.setAttribute("name", "brand");
+				input.setAttribute("value", brand);
+				label.appendChild(input);
+				label.appendChild(document.createTextNode(brand));
+				colorForm.appendChild(label);
+			}
+			</script>
 		</form>
 	</body>
 </html>
