@@ -9,10 +9,8 @@
 		function checkInput() {
 			var colorStr = document.getElementById("colors").value;
 			var brandStr = document.querySelector('input[name="brand"]:checked').value;
-			
-			console.log(brandStr);
 			var matchesArr = match(colorStr.split("\n"), brandStr);
-			document.getElementById("results").value = matchesArr;
+			document.getElementById("results").value = matchesArr.join("\n");
 		}
 		</script>
 		<form id="colorpicker">
