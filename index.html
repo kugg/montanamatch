@@ -7,6 +7,8 @@
 		<script src="montanamatch.js"></script>
 		<script>
 		function checkInput() {
+			/* Remove blank lines */
+			document.getElementById("colors").value = document.getElementById("colors").value.replace(/^\s*[\r\n]/gm, '');
 			var colorStr = document.getElementById("colors").value;
 			var brandStr = document.querySelector('input[name="brand"]:checked').value;
 			var matchesArr = match(colorStr.split("\n"), brandStr);
@@ -50,6 +52,6 @@ Please update your browser.
 <input type="radio" id="copy_cmyk" name="copy_code" value="cmyk"><label for="copy_cmyk">CMYK</label>
 (when you click the color block)</div>
 </div>
-<script type="text/javascript" src="canvasutil.js"></script>
+<script src="canvasutil.js"></script>
 <body>
 </html>
