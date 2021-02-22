@@ -277,44 +277,44 @@ var img = new Image();
 img.crossOrigin = "Anonymous";
 
 function refresh_canvas(){
-var maxWidth = 800 ;
-if (screen.width<500){
-  maxWidth=screen.width;
-} else {
-  if (maxWidth>screen.width){maxWidth=screen.width;}
-  else {maxWidth=screen.width-680;}
-} 
+	var maxWidth = 800 ;
+	if (screen.width<500){
+	  maxWidth=screen.width;
+	} else {
+	  if (maxWidth>screen.width){maxWidth=screen.width;}
+	  else {maxWidth=screen.width-680;}
+	} 
 
-var maxHeight = 380 ;
-if (screen.width<500){//mobile phone
-  if (maxHeight>screen.height){maxHeight=screen.height;}
-  else {maxHeight=screen.height/2;}
-} else { //table or pc
-  if (maxHeight>screen.height){maxHeight=screen.height;}
-  else {maxHeight=screen.height/2;}
+	var maxHeight = 380 ;
+	if (screen.width<500){//mobile phone
+	  if (maxHeight>screen.height){maxHeight=screen.height;}
+	  else {maxHeight=screen.height/2;}
+	} else { //table or pc
+	  if (maxHeight>screen.height){maxHeight=screen.height;}
+	  else {maxHeight=screen.height/2;}
+	}
+
+	var rWidth=1,rHeight= 1;
+
+	if(img.width > maxWidth){rWidth = maxWidth/img.width;} 
+	if(img.height > maxHeight){rHeight = maxHeight/img.height;} 
+	var ratio=Math.min(rWidth,rHeight);
+	nWidth=img.width*ratio;
+	nHeight=img.height*ratio;
+	c.width=nWidth;
+	c.height=nHeight;
+	c.style.width=nWidth+'px';
+	c.style.height=nHeight+'px';
+
+	cxt.drawImage(img, 0, 0, img.width, img.height, 0, 0, c.width, c.height);  
+	   
+}
+function loadPic() {
+	url = document.getElementById("url").value;
+	img.addEventListener("load", refresh_canvas);
+	img.src = url;
 }
 
-var rWidth=1,rHeight= 1;
-
-if(img.width > maxWidth){rWidth = maxWidth/img.width;} 
-if(img.height > maxHeight){rHeight = maxHeight/img.height;} 
-var ratio=Math.min(rWidth,rHeight);
-nWidth=img.width*ratio;
-nHeight=img.height*ratio;
-c.width=nWidth;
-c.height=nHeight;
-c.style.width=nWidth+'px';
-c.style.height=nHeight+'px';
-
-cxt.drawImage(img, 0, 0, img.width, img.height, 0, 0, c.width, c.height);  
-   
-}
-
-img.addEventListener("load",refresh_canvas);
-
-
-img.src = 'goliat.png';
- 
 c.onmousemove=function(e){
 var x,y;
 
