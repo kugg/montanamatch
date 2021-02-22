@@ -14,12 +14,9 @@
 		}
 		</script>
 		<form id="colorpicker">
-			<p>Enter hex colors in to the box to match the closest montana.</p>
-			<p>Pick your colors in a picture using this service: <a href="https://www.ginifab.com/feeds/pms/color_picker_from_image.php">Pick color from image</a></p>
+			<p>Click on a color in your uploaded image</p>
 			<p>
-			<textarea onchange="checkInput()" name="colors" id="colors" class="inputfield" rows="12" cols="6">#FF0000
-#00FF00
-#0000FF</textarea>
+			<textarea onchange="checkInput()" name="colors" id="colors" class="inputfield" rows="12" cols="6"></textarea>
 			<textarea name="results" id="results" class="outputfield" rows="12" cols="40"></textarea>
 			</p>
 			<script>
@@ -39,5 +36,20 @@
 			}
 			</script>
 		</form>
-	</body>
+<div id="divMouseColorPanel"></div>
+<div id="divMouseColor"></div>
+<canvas id="myCanvas">
+Your browser does not support the HTML5 Canvas element.
+Please update your browser.
+</canvas>
+<div id="divPMS">
+<div id="Matchingto">Click on the image to get the color code.</div>
+<div id="divClkHistory" style="display:none"></div>
+<div id="divCopyColorCode" style="display:none">copy color code of <input type="radio" id="copy_hex" name="copy_code" value="hex"><label for="copy_hex">HEX</label> 
+<input type="radio" id="copy_rgb" name="copy_code" value="rgb" checked><label for="copy_rgh" checked>RGB</label> 
+<input type="radio" id="copy_cmyk" name="copy_code" value="cmyk"><label for="copy_cmyk">CMYK</label>
+(when you click the color block)</div>
+</div>
+<script type="text/javascript" src="canvasutil.js"></script>
+<body>
 </html>
