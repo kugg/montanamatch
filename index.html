@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 	</head>
-	<body>
+	<body onLoad="loadPic()">
 		<script src="montanamatch.js"></script>
 		<script>
 		function checkInput() {
@@ -37,22 +37,22 @@
 				colorForm.appendChild(label);
 			}
 			</script>
-			<input type="text" id="url" onChange="loadPic()" onLoad="loadPic()" value="https://as1.ftcdn.net/jpg/03/55/83/98/500_F_355839886_3Eh9BXgU6PVyvmP6C0Wp8oNyeHWcjdjc.jpg">
+			<input type="text" id="url" onChange="loadPic()" value="https://as1.ftcdn.net/jpg/03/55/83/98/500_F_355839886_3Eh9BXgU6PVyvmP6C0Wp8oNyeHWcjdjc.jpg">
 		</form>
-<div id="divMouseColorPanel"></div>
-<div id="divMouseColor"></div>
-<canvas id="myCanvas">
-Your browser does not support the HTML5 Canvas element.
-Please update your browser.
-</canvas>
-<div id="divPMS">
-<div id="Matchingto">Click on the image to get the color code.</div>
-<div id="divClkHistory" style="display:none"></div>
-<div id="divCopyColorCode" style="display:none">copy color code of <input type="radio" id="copy_hex" name="copy_code" value="hex"><label for="copy_hex">HEX</label> 
-<input type="radio" id="copy_rgb" name="copy_code" value="rgb" checked><label for="copy_rgh" checked>RGB</label> 
-<input type="radio" id="copy_cmyk" name="copy_code" value="cmyk"><label for="copy_cmyk">CMYK</label>
-(when you click the color block)</div>
-</div>
-<script src="canvasutil.js"></script>
-<body>
+		<div id="divMouseColorPanel"></div>
+		<div id="divMouseColor"></div>
+		<canvas id="myCanvas">
+		Your browser does not support the HTML5 Canvas element.
+		Please update your browser.
+		</canvas>
+		<div id="divPMS">
+		<div id="Matchingto">Click on the image to get the color code.</div>
+		<div id="divClkHistory" style="display:none"></div>
+		<div id="divCopyColorCode" style="display:none">copy color code of <input type="radio" id="copy_hex" name="copy_code" value="hex"><label for="copy_hex">HEX</label> 
+		<input type="radio" id="copy_rgb" name="copy_code" value="rgb" checked><label for="copy_rgh" checked>RGB</label> 
+		<input type="radio" id="copy_cmyk" name="copy_code" value="cmyk"><label for="copy_cmyk">CMYK</label>
+		(when you click the color block)</div>
+		</div>
+		<script src="canvasutil.js"></script>
+	<body>
 </html>
